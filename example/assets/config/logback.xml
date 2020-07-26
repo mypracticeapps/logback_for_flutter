@@ -1,0 +1,19 @@
+<configuration>
+    <property name="LOG_DIR" value="/data/data/com.example/files" />
+
+    <!-- Create a logcat appender -->
+    <appender name="logcat" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %logger{15} [%-5level] - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Write TRACE messages from class A to its own log -->
+    <logger name="xyz.cjcj" additivity="false" level="ALL">
+        <appender-ref ref="logcat" />
+    </logger>
+
+    <root level="INFO">
+        <appender-ref ref="logcat" />
+    </root>
+</configuration>
